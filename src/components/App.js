@@ -19,7 +19,8 @@ class App extends Component {
 
     const amOrPm = hours >= 12 ? "PM" : "AM";
     const twleveHourFormat = hours > 12 ? hours - 12 : hours;
-    const hourString = this.padNumberToTwoDigits(twleveHourFormat);
+    // const hourString = this.padNumberToTwoDigits(twleveHourFormat);
+    const hourString = twleveHourFormat;
     const minuteString = this.padNumberToTwoDigits(mins);
     const secsString = this.padNumberToTwoDigits(secs);
     const timeString = `${hourString}:${minuteString}:${secsString} ${amOrPm}`;
@@ -38,7 +39,7 @@ class App extends Component {
       },1*1000)
   }
 
-  componentWillMount(){
+  componentWillUnMount(){
       clearInterval(this.intervalId);
   }
 
